@@ -1,0 +1,111 @@
+.mainWindow {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.output {
+    margin: 0 auto;
+    height: 100px;
+    width: 500px;
+    border: 1px solid rgba(255, 255, 255, 1);
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.2);
+    -webkit-box-shadow: 0px 5px 10px 2px rgba(248, 248, 248, 0.2);
+    -moz-box-shadow: 0px 5px 10px 2px rgba(252, 252, 252, 0.2);
+    box-shadow: 0px 5px 10px 2px rgba(253, 254, 255, 0.2);
+
+    transition: box-shadow 1s, border-color 1s;
+    
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+
+            &_line {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                height: 20%;
+                width: 30%;
+                border-bottom: 1px solid grey;
+                font-size: 22px;
+                font-weight: 400;
+            }
+
+            &-point {
+                transition: display, opacity, 1s;
+                opacity: 0;
+                position: absolute;
+                top: 32px;
+                right: 70px;
+                z-index: 1;
+                    &-pic {
+                        display: block;
+                        width: 30px;
+                    }
+            }
+}
+
+.output.win {
+    border: 4px solid rgba(12, 126, 17, 0.575);
+    box-shadow: 0 0 20px rgba(12, 126, 17, 0.575), inset 0 0 20px rgba(12, 126, 17, 0.575);
+}
+
+.output.win .output-point {
+    opacity: 1;
+}
+
+.output.lose {
+    border: 4px solid rgba(138, 0, 0, 0.575);
+    box-shadow: 0 0 20px rgba(126, 12, 12, 0.575), inset 0 0 20px rgba(126, 12, 12, 0.575);
+}
+
+.inform {
+    width: 40%;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 2px;
+    border-radius: 4px;
+    color: white;
+    font-weight: 700;
+}
+
+.spanQuiz {
+    display: flex;
+    color: #fff;
+    justify-content: space-around;
+    &_item {
+        margin: 0 5px;
+    }
+}
+
+.btns {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+}
+
+.showListBtn {
+    margin-top: 50px;
+    width: 200px;
+    text-align: center;
+    padding: 5px;
+    text-decoration: none;
+    color: rgb(0, 179, 224);
+    height: 30px;
+    border: 4px solid rgb(0, 179, 224);
+    border-radius: 5px;
+    transition: background-color, .1s;
+    box-shadow: 0 0 20px rgb(0, 179, 224), inset 0 0 20px rgb(0, 179, 224);
+    cursor: pointer;
+        &:hover {
+            background-color:rgb(0, 179, 224);
+            color: #fff;
+            box-shadow: 0 0 50px rgb(0, 179, 224);
+        }
+}

@@ -1,0 +1,75 @@
+
+
+.btn {
+    text-decoration: none;
+    color: black;
+}
+
+.testBox {
+
+    position: absolute;
+    left: -360px;
+    z-index: 2;
+    width: 200px;
+    color: #000;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    transition: position, .5s;
+    perspective: 750px;
+    
+    &_inner{
+        background-color: rgba(255, 255, 255, 0.2);
+        border-radius: 5px;
+        transform: rotateY(20deg);
+        display: flex;
+        flex-direction: column;
+        transform: rotateY(20deg) scale3d(1, 1, 1);
+        transition: transform, .5s;
+        &:hover {
+            transform: scale3d(1.2, 1.2, 1.2);
+        }
+    }
+    
+
+}
+.instanceItem {
+    display: flex;
+    color: #fff;
+    margin: 10px;
+    margin-right: 10px;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color, .1s;
+    &:hover {
+        background-color: rgba(255, 255, 255, 0.356);
+    }
+    &_index {
+        margin-right: auto;
+        margin-left: 10px;
+    }
+}
+
+.testBox.active {
+    left: 150px;
+}
+
+.btnShowAll {
+    width: 100px;
+    margin: 0 auto;
+    margin-top: auto;
+}
+
+
+.instanceItem.false {
+    background-color: rgba(109, 0, 0, 0.5);
+}
+.instanceItem.true {
+    background-color: rgba(21, 112, 3, 0.5);
+}
+
+.title {
+    color: #fff;
+    margin: 10px 0px;
+}
