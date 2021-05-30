@@ -6,34 +6,9 @@ import green from '../../../images/green.png'
 import { motion } from 'framer-motion'
 import Training from '../../training/Training'
 import { connect } from 'react-redux'
-import BIRDS from 'vanta/dist/vanta.globe.min'
 
 const MainWindow = (props) => {
 
-    const [vantaEffect, setVantaEffect] = useState(0)
-    const myRef = useRef(null)
-
-    useEffect(() => {
-        if (!vantaEffect) {
-          setVantaEffect(BIRDS({
-            el: myRef.current,
-            mouseControls: false,
-            touchControls: false,
-            gyroControls: false,
-            minHeight: 200.00,
-            minWidth: 200.00,
-            scale: 1.00,
-            scaleMobile: 1.00,
-            color: 0xffffff,
-            color2: 0xd3ff,
-            size: 0.5,
-            backgroundColor: 0x0
-          }))
-        }
-        return () => {
-          if (vantaEffect) vantaEffect.destroy()
-        }
-      }, [vantaEffect])
       
 
     const [isRight, setIsRight] = useState(false)
@@ -413,7 +388,6 @@ const MainWindow = (props) => {
                 exit={{opacity:0}}
                 animate={{opacity:1}}
                 initial={{opacity:0}}
-                ref={myRef}
             >
                 <div className={classes['mainWindow']}>
                     <Training
