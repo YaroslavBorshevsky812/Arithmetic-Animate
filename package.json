@@ -2,7 +2,7 @@
   "name": "first-pet",
   "version": "0.1.0",
   "private": true,
-  "home": " https://yaroslavborshevsky812.github.io/Arithmetic-Animate/",
+  "homepage": " https://yaroslavborshevsky812.github.io/Arithmetic-Animate/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.10",
     "@testing-library/react": "^11.2.6",
