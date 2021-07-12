@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/Arithmetic-Animate/static/css/main.7afe79c7.chunk.css",
-    "main.js": "/Arithmetic-Animate/static/js/main.05c69314.chunk.js",
-    "main.js.map": "/Arithmetic-Animate/static/js/main.05c69314.chunk.js.map",
+    "main.js": "/Arithmetic-Animate/static/js/main.df368e30.chunk.js",
+    "main.js.map": "/Arithmetic-Animate/static/js/main.df368e30.chunk.js.map",
     "runtime-main.js": "/Arithmetic-Animate/static/js/runtime-main.eb3ffb7f.js",
     "runtime-main.js.map": "/Arithmetic-Animate/static/js/runtime-main.eb3ffb7f.js.map",
     "static/js/2.2d719c83.chunk.js": "/Arithmetic-Animate/static/js/2.2d719c83.chunk.js",
@@ -18,6 +18,6 @@
     "static/js/runtime-main.eb3ffb7f.js",
     "static/js/2.2d719c83.chunk.js",
     "static/css/main.7afe79c7.chunk.css",
-    "static/js/main.05c69314.chunk.js"
+    "static/js/main.df368e30.chunk.js"
   ]
 }
