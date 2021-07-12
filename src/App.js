@@ -1,5 +1,5 @@
 import MainPage from './components/mainPage/MainPage'
-import {Route} from 'react-router-dom'
+import {Route, BrowserRouter} from 'react-router-dom'
 import Navigation from './components/navigation/Navigation'
 import MainWindow from './components/trainingPage/mainWindow/MainWindow'
 import { AnimatePresence } from 'framer-motion'
@@ -8,6 +8,7 @@ import classes from './App.module.scss'
 
 function App() {
   return (
+  <BrowserRouter basename={process.env.PUBLIC_URL}>
     <div className={classes.App}>
       <AnimatePresence>
             <Route 
@@ -30,6 +31,7 @@ function App() {
             />
       </AnimatePresence>
     </div>
+  </BrowserRouter>
   );
 }
 
