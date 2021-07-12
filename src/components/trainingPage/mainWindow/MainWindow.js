@@ -390,6 +390,7 @@ const MainWindow = (props) => {
                 initial={{opacity:0}}
             >
                 <div className={classes['mainWindow']}>
+                    <div className={classes['mainWindow_inner']}>
                     <Training
                         arrayOfInstances={instances}
                         activeModal={isFinished}
@@ -423,6 +424,7 @@ const MainWindow = (props) => {
                         modalBtn={modalHendler}
                         modalBtns={modalBtnsHendler}
                     />
+                    </div>
                 </div>
             </motion.div>
         )

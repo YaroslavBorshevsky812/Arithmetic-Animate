@@ -7,115 +7,118 @@ import { connect } from 'react-redux'
 
 class Navigation extends Component {
     render() {
-        return (
-            <motion.div 
-                exit={{opacity:0}}
-                animate={{opacity:1}}
-                initial={{opacity:0}}
-                ref={this.vantaRef}
-                >
-                <div 
-                    className={classes.navigation}
-                >
-                    <div className={classes.navigationSet}>
-                
-                        <div className={classes.item}>
-                            <h2 className={classes.title}>Сложение</h2>
-                            <ActionItem
-                                optionNum = 'A + A'
-                                action = {0}
-                                onActionClick ={this.props.onChangeState}
-                                />
-                            <ActionItem
-                                optionNum = 'AA + A'
-                                action = {1}
-                                onActionClick ={this.props.onChangeState}
-                                />
-                            <ActionItem
-                                optionNum = 'AA + AA'
-                                action = {2}
-                                onActionClick ={this.props.onChangeState}
-                                />
-                        </div>
 
-                        <div className={classes.item}>
-                            <h2 className={classes.title}>Вычитание</h2>
-                            <ActionItem
-                                action = {3}
-                                optionNum = 'A - A'
-                                onActionClick ={this.changeState}
-                                />
-                                <ActionItem
-                                action = {4}
-                                optionNum = 'AA - A'
-                                onActionClick ={this.changeState}
-                                />
-                                <ActionItem
-                                action = {5}
-                                optionNum = 'AA - AA'
-                                onActionClick ={this.changeState}
-                                />
-                        </div>
-
-                        <div className={classes.item}>
-                            <h2 className={classes.title}>Умножение</h2>
-                            <ActionItem
-                                action = {6}
-                                optionNum = 'A x A'
-                                onActionClick ={this.changeState}
-                                />
-                                <ActionItem
-                                action = {7}
-                                optionNum = 'AA x A'
-                                onActionClick ={this.changeState}
-                                />
-                                <ActionItem
-                                action = {8}
-                                optionNum = 'AA x AA'
-                                onActionClick ={this.changeState}
-                                />
-                        </div>
-
-                        <div className={classes.item}>
-                            <h2 className={classes.title}>Деление</h2>
-                            <ActionItem
-                                action = {9}
-                                optionNum = 'A / A'
-                                onActionClick ={this.changeState}
-                                />
-                                <ActionItem
-                                action = {10}
-                                optionNum = 'AA / A'
-                                onActionClick ={this.changeState}
-                                />
-                                <ActionItem
-                                action = {11}
-                                optionNum = 'AA / AA'
-                                onActionClick ={this.changeState}
-                                />
-                        </div>
-        
+return (
+    <motion.div 
+        exit={{opacity:0}}
+        animate={{opacity:1}}
+        initial={{opacity:0}}
+        ref={this.vantaRef}
+        >
+        <div className={classes.navigation}>
+            <div className={classes.navigation_wrapper}>
+            <div className={classes.navigation_inner}>
+                <div className={classes.navigationSet}>
+            
+                    <div className={classes.item}>
+                        <h2 className={classes.title}>Сложение</h2>
+                        <ActionItem
+                            optionNum = 'A + A'
+                            action = {0}
+                            onActionClick ={this.props.onChangeState}
+                            />
+                        <ActionItem
+                            optionNum = 'AA + A'
+                            action = {1}
+                            onActionClick ={this.props.onChangeState}
+                            />
+                        <ActionItem
+                            optionNum = 'AA + AA'
+                            action = {2}
+                            onActionClick ={this.props.onChangeState}
+                            />
                     </div>
 
-                    <div className={classes.navigationRight}>
-                        <p className={classes.navigationRight_text}>
-                            Здесь необходимо выбрать количество примеров, которое Вы хотите решить, а также их тип.
-                            Типы примеров представлены схематично и указывают на<strong> количество десятков в цифрах. </strong> Например
-                            ( АА+A может быть 34+9 соотвественно ).
-                        </p>
-                        <span className={classes.navigationRight_autor}>"Математику уже затем учить надо, что она ум в порядок приводит."<br></br>(М.В. Ломоносов)</span>
-                        
-        
-                            <NavLink 
-                                className={classes.btnT} 
-                                to='/navigation/training'
-                                >
-                                Решать примеры
-                            </NavLink>
+                    <div className={classes.item}>
+                        <h2 className={classes.title}>Вычитание</h2>
+                        <ActionItem
+                            action = {3}
+                            optionNum = 'A - A'
+                            onActionClick ={this.changeState}
+                            />
+                            <ActionItem
+                            action = {4}
+                            optionNum = 'AA - A'
+                            onActionClick ={this.changeState}
+                            />
+                            <ActionItem
+                            action = {5}
+                            optionNum = 'AA - AA'
+                            onActionClick ={this.changeState}
+                            />
                     </div>
+
+                    <div className={classes.item}>
+                        <h2 className={classes.title}>Умножение</h2>
+                        <ActionItem
+                            action = {6}
+                            optionNum = 'A x A'
+                            onActionClick ={this.changeState}
+                            />
+                            <ActionItem
+                            action = {7}
+                            optionNum = 'AA x A'
+                            onActionClick ={this.changeState}
+                            />
+                            <ActionItem
+                            action = {8}
+                            optionNum = 'AA x AA'
+                            onActionClick ={this.changeState}
+                            />
+                    </div>
+
+                    <div className={classes.item}>
+                        <h2 className={classes.title}>Деление</h2>
+                        <ActionItem
+                            action = {9}
+                            optionNum = 'A / A'
+                            onActionClick ={this.changeState}
+                            />
+                            <ActionItem
+                            action = {10}
+                            optionNum = 'AA / A'
+                            onActionClick ={this.changeState}
+                            />
+                            <ActionItem
+                            action = {11}
+                            optionNum = 'AA / AA'
+                            onActionClick ={this.changeState}
+                            />
+                    </div>
+
                 </div>
-            </motion.div>
-        )
+
+                <div className={classes.navigationRight}>
+                    <p className={classes.navigationRight_text}>
+                        Здесь необходимо выбрать количество примеров, которое Вы хотите решить, а также их тип.
+                        Типы примеров представлены схематично и указывают на<strong> количество десятков в цифрах. </strong> Например
+                        ( АА+A может быть 34+9 соотвественно ).
+                    </p>
+                    <span className={classes.navigationRight_autor}>"Математику уже затем учить надо, что она ум в порядок приводит."<br></br>(М.В. Ломоносов)</span>
+                    
+
+                        <NavLink 
+                            className={classes.btnT} 
+                            to='/navigation/training'
+                            >
+                            Решать примеры
+                        </NavLink>
+                </div>
+                </div>
+            </div>
+        </div>
+    </motion.div>
+)
     }  
 }
 
