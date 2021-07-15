@@ -11,9 +11,14 @@
         &_title {
             color: #fff;
         }
+    @media (max-width: 1024px) {
+        background-position: 72%;
+    }    
     @media (max-width: 570px) {
-        max-height: 575px;
+        max-height: 812px;
     }
+    
+
 }
 
 .container {

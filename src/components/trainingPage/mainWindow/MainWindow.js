@@ -395,22 +395,24 @@ const MainWindow = (props) => {
                         arrayOfInstances={instances}
                         activeModal={isFinished}
                         />
-                    <div className={outputClasses.join(' ')}>
-                        <div className={classes['output_line']}>
-                            <div data-output className={classes['output_line-text']}>
-                                {renderQuiz()}
+                    
+                        <div className={outputClasses.join(' ')}>
+                            <div className={classes['output_line']}>
+                                <div data-output className={classes['output_line-text']}>
+                                    {renderQuiz()}
+                                </div>
+                                <input 
+                                    className={classes['inform']} 
+                                    type={classes['text']} 
+                                    value={answer} 
+                                    onChange={handleChange.bind(this)}
+                                />
                             </div>
-                            <input 
-                                className={classes['inform']} 
-                                type={classes['text']} 
-                                value={answer} 
-                                onChange={handleChange.bind(this)}
-                            />
+                            <div className={classes['output-point']}>
+                                <img className={classes['output-point-pic']} src={green} alt=""/>
+                            </div>
                         </div>
-                        <div className={classes['output-point']}>
-                            <img className={classes['output-point-pic']} src={green} alt=""/>
-                        </div>
-                    </div>
+                    
                     <div className={classes.btns}>
                         <MainButt ResetClick={resetBtnHendler} name="Далее"/>
                         <MainButt ResetClick={ckeckAnswer} name="Проверить"/>
@@ -424,6 +426,8 @@ const MainWindow = (props) => {
                         modalBtn={modalHendler}
                         modalBtns={modalBtnsHendler}
                     />
+
+
                     </div>
                 </div>
             </motion.div>
