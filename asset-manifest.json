@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/Arithmetic-Animate/static/css/main.7afe79c7.chunk.css",
+    "main.css": "/Arithmetic-Animate/static/css/main.6659e78c.chunk.css",
     "main.js": "/Arithmetic-Animate/static/js/main.df368e30.chunk.js",
     "main.js.map": "/Arithmetic-Animate/static/js/main.df368e30.chunk.js.map",
     "runtime-main.js": "/Arithmetic-Animate/static/js/runtime-main.eb3ffb7f.js",
@@ -10,14 +10,14 @@
     "static/js/3.8027f301.chunk.js": "/Arithmetic-Animate/static/js/3.8027f301.chunk.js",
     "static/js/3.8027f301.chunk.js.map": "/Arithmetic-Animate/static/js/3.8027f301.chunk.js.map",
     "index.html": "/Arithmetic-Animate/index.html",
-    "static/css/main.7afe79c7.chunk.css.map": "/Arithmetic-Animate/static/css/main.7afe79c7.chunk.css.map",
+    "static/css/main.6659e78c.chunk.css.map": "/Arithmetic-Animate/static/css/main.6659e78c.chunk.css.map",
     "static/js/2.2d719c83.chunk.js.LICENSE.txt": "/Arithmetic-Animate/static/js/2.2d719c83.chunk.js.LICENSE.txt",
     "static/media/MainPage.module.scss": "/Arithmetic-Animate/static/media/backOne.24fdf139.png"
   },
   "entrypoints": [
     "static/js/runtime-main.eb3ffb7f.js",
     "static/js/2.2d719c83.chunk.js",
-    "static/css/main.7afe79c7.chunk.css",
+    "static/css/main.6659e78c.chunk.css",
     "static/js/main.df368e30.chunk.js"
   ]
 }
