@@ -42,10 +42,12 @@
     border-top: 1px solid rgba(255, 255, 255, 0.2);
     border-left: 1px solid rgba(255, 255, 255, 0.2);
     transform: rotateY(20deg) scale3d(1, 1, 1);
+    transition: .5s,-webkit-transform;
+    transition: .5s,-moz-transform;
+    transition: .5s,-ms-transform;
     text-align: center;
     border-radius: 5px;
     padding: 20px;
-    transition: transform, .5s;
     .title {
         margin-bottom: 10px;
         @media (max-width: 400px) {
