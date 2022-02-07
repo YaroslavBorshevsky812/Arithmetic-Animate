@@ -1,299 +1,84 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState } from 'react'
+import { useSelector } from 'react-redux'
 import MainButt from '../mainBtn/MainBtn'
 import classes from './MainWindow.module.scss'
 import ModalWin from '../modalWindow/ModalWindow'
 import green from '../../../images/green.png'
 import { motion } from 'framer-motion'
 import Training from '../../training/Training'
-import { connect } from 'react-redux'
+import { modalBtns } from '../../../config/examples.json'
 
-const MainWindow = (props) => {
-
-      
-
+const MainWindow = () => {
     const [isRight, setIsRight] = useState(false)
     const [isFalse, setIsFalse] = useState(false)
     const [modalActive, setModalActive] = useState(false)
     const [answer, setModalAnswer] = useState(' ')
     const [isFinished, setIsFinished] = useState(false)
-    const [btnsModal] = useState([
-        {value: '7'},
-        {value: '8'},
-        {value: '9'},
-        {value: '4'},
-        {value: '5'},
-        {value: '6'},
-        {value: '1'},
-        {value: '2'},
-        {value: '3'},
-        {value: 'del'},
-        {value: '0'},
-        {value: '.'},
-    ])
+    const [btnsModal] = useState(modalBtns)
 
-    let arrayOfActions = Object.values(props.amounts)
-    let arrayOfInstances = []
+    const examples = useSelector(state => state.examples)
+    const arrayOfExamples = []
 
-    function rand(min, max){
+    const rand = (min, max) => {
         min = Math.ceil(min);
         max = Math.floor(max);
-        return Math.floor(Math.random() * (max - min)) + min; 
+        return Math.floor(Math.random() * (max - min)) + min;
     }
 
-    function createItem(){
-        arrayOfActions.filter(item => item.amount !== 0)
-                .map((item) => {
-                    let counter = 0
-                    switch(item.action) {
-
-                    // Addition methods. i'm sorry
-
-                        case 'A + A':
-                            while(counter < item.amount) {
-                                let first = rand(2, 10)
-                                let second = rand(2, 10) 
-                                let answer = first + second
-                                const quiz = { 
-                                    first: first,
-                                    second: second,
-                                    answer:  answer,
-                                    action: '+', 
-                                    isRight: null 
-                                }
-                                    arrayOfInstances.push(quiz)
-                                    counter++
-                            }
-                                break
-                        case 'AA + A':
-                            while(counter < item.amount) {
-                                let first = rand(11, 100)
-                                let second = rand(2, 10) 
-                                let answer = first + second
-                                const quiz = { 
-                                    first: first,
-                                    second: second,
-                                    answer:  answer,
-                                    action: '+', 
-                                    isRight: null 
-                                }
-                                    arrayOfInstances.push(quiz)
-                                    counter++
-                            }
-                                break
-                        case 'AA + AA':
-                            while(counter < item.amount) {
-                                let first = rand(12, 100)
-                                let second = rand(12, 100) 
-                                let answer = first + second
-                                const quiz = { 
-                                    first: first,
-                                    second: second,
-                                    answer:  answer,
-                                    action: '+', 
-                                    isRight: null 
-                                }
-                                    arrayOfInstances.push(quiz)
-                                    counter++
-                            }
-                                break
-                        // Addition ...\\\
-
-                        // Subtraction
-                        case 'A - A':
-                            while(counter < item.amount) {
-                                let first = rand(2, 10)
-                                let second = rand(2, 10) 
-                                let answer = first - second
-                                if(answer > 0) {
-
-                                    const quiz = { 
-                                        first: first,
-                                        second: second,
-                                        answer:  answer,
-                                        action: '-', 
-                                        isRight: null
-                                }
-                                arrayOfInstances.push(quiz)
-                                counter++
-                                }   
-                            }
-                        break
-
-                        case 'AA - A':
-                            while(counter < item.amount) {
-                                let first = rand(12, 100)
-                                let second = rand(2, 10) 
-                                let answer = first - second
-                                if(answer > 0) {
-
-                                    const quiz = { 
-                                        first: first,
-                                        second: second,
-                                        answer:  answer,
-                                        action: '-', 
-                                        isRight: null
-                                }
-                                arrayOfInstances.push(quiz)
-                                counter++
-                                }   
-                            }
-                                break
-
-                        case 'AA - AA':
-                            while(counter < item.amount) {
-                                let first = rand(12, 100)
-                                let second = rand(12, 100) 
-                                let answer = first - second
-                                if(answer > 0) {
-
-                                    const quiz = { 
-                                        first: first,
-                                        second: second,
-                                        answer:  answer,
-                                        action: '-', 
-                                        isRight: null
-                                }
-                                arrayOfInstances.push(quiz)
-                                counter++
-                                }   
-                            }
-                                break
-                        // Subtraction \\\\
-
-                        // Multiplication
-
-                        case 'A x A':
-                            while(counter < item.amount) {
-                                let first = rand(2, 9)
-                                let second = rand(2, 9) 
-                                let answer = first * second
-                                if(Number.isInteger(answer)) {
-
-                                    const quiz = { 
-                                        first: first,
-                                        second: second,
-                                        answer:  answer,
-                                        action: 'x', 
-                                        isRight: null
-                                }
-                                arrayOfInstances.push(quiz)
-                                counter++
-                                }   
-                            }
-                                break 
-                            
-                        case 'AA x A':
-                            while(counter < item.amount) {
-                                let first = rand(12, 100)
-                                let second = rand(2, 9) 
-                                let answer = first * second
-                                if(Number.isInteger(answer)) {
-
-                                    const quiz = { 
-                                        first: first,
-                                        second: second,
-                                        answer:  answer,
-                                        action: 'x', 
-                                        isRight: null
-                                }
-                                arrayOfInstances.push(quiz)
-                                counter++
-                                }   
-                            }
-                                break 
-
-                        case 'AA x AA':
-                            while(counter < item.amount) {
-                                let first = rand(10, 100)
-                                let second = rand(10, 100) 
-                                let answer = first * second
-                                if(Number.isInteger(answer)) {
-
-                                    const quiz = { 
-                                        first: first,
-                                        second: second,
-                                        answer:  answer,
-                                        action: 'x', 
-                                        isRight: null
-                                }
-                                arrayOfInstances.push(quiz)
-                                counter++
-                                }   
-                            }
-                                break
-                        
-                        // Multiplication \\\
-
-                        // Division
-
-                        case 'A / A':
-                            while(counter < item.amount) {
-                                let first = rand(1, 10)
-                                let second = rand(1, 10) 
-                                let answer = first / second
-                                if(answer > 0 && Number.isInteger(answer)) {
-
-                                    const quiz = { 
-                                        first: first,
-                                        second: second,
-                                        answer:  answer,
-                                        action: '/', 
-                                        isRight: null
-                                }
-                                arrayOfInstances.push(quiz)
-                                counter++
-                                }   
-                            }
-                                break
-
-                        case 'AA / A':
-                            while(counter < item.amount) {
-                                let first = rand(10, 100)
-                                let second = rand(2, 9) 
-                                let answer = first / second
-                                if(answer > 0 && Number.isInteger(answer)) {
-
-                                    const quiz = { 
-                                        first: first,
-                                        second: second,
-                                        answer:  answer,
-                                        action: '/', 
-                                        isRight: null
-                                }
-                                arrayOfInstances.push(quiz)
-                                counter++
-                                }   
-                            }
-                                break
-
-                            case 'AA / AA':
-                                while(counter < item.amount) {
-                                    let first = rand(10, 100)
-                                    let second = rand(10, 100) 
-                                    let answer = first / second
-                                    if(answer > 0 && Number.isInteger(answer)) {
-    
-                                        const quiz = { 
-                                            first: first,
-                                            second: second,
-                                            answer:  answer,
-                                            action: '/', 
-                                            isRight: null
-                                    }
-                                    arrayOfInstances.push(quiz)
-                                    counter++
-                                    }   
-                                }
-                                    break
-
-                        // Division \\\
-
-                        }    
-                })
-            return arrayOfInstances
+    const createNum = (numLength) => {
+        if(numLength === 1) return  rand(2, 10)
+        if(numLength === 2) return  rand(12, 100)
     }
 
-    const [instances] = useState(createItem())
+    const renderExamples = () => {
+        const examplesList = examples.filter(item => item.count !== 0)
+
+        examplesList.map(item => {
+            let numString = item.name
+            let arrayOfNumSrtrings = []
+            let operationString = numString.replace(/A/gi, '').trim()
+            arrayOfNumSrtrings = numString.split(operationString).map(item => item.trim()) 
+            let firstNumLength = arrayOfNumSrtrings[0].length
+            let secondNumLength = arrayOfNumSrtrings[arrayOfNumSrtrings.length - 1].length
+
+            let counter = 0;
+            while(counter < item.count) {
+                let firstNum = createNum(firstNumLength, operationString)
+                let secondNum = createNum(secondNumLength, operationString)
+                let rightAnswer
+                if(isNaN(firstNum) || isNaN(secondNum)) return
+                    switch(operationString) {
+                        case '+':
+                           rightAnswer = firstNum + secondNum
+                            break
+                        case '-':
+                           rightAnswer = firstNum - secondNum
+                            break   
+                        case '/':
+                            rightAnswer = firstNum / secondNum
+                            break 
+                        case 'x':
+                            rightAnswer = firstNum * secondNum
+                            break
+                        default:
+                            return 
+                    }
+                    if(rightAnswer > 0 && Number.isInteger(rightAnswer)) {
+                        const example = {
+                            first: firstNum,
+                            second: secondNum,
+                            operation: operationString,
+                            answer: rightAnswer
+                        }
+                        arrayOfExamples.push(example)
+                        counter ++
+                    }
+            }
+        })
+        return arrayOfExamples
+    }
+
+    const [instances] = useState(renderExamples())
     const [activeQuiz, setActiveQuiz] = useState(0)
 
 
@@ -306,7 +91,7 @@ const MainWindow = (props) => {
             return (
                 <span className={classes.spanQuiz}>
                     <h5 className={classes.spanQuiz_item}>{instances[activeQuiz].first}</h5>
-                    <h5 className={classes.spanQuiz_item}>{instances[activeQuiz].action}</h5>
+                    <h5 className={classes.spanQuiz_item}>{instances[activeQuiz].operation}</h5>
                     <h5 className={classes.spanQuiz_item}>{instances[activeQuiz].second}</h5>
                     <h5 className={classes.spanQuiz_item}>{'='}</h5>
                 </span>
@@ -348,11 +133,7 @@ const MainWindow = (props) => {
         if(activeQuiz === instances.length - 1) {
             setIsFinished(true)
         }
-}
-
-
-
-    
+    }
 
     function showList() {
         setIsFinished(!isFinished)
@@ -394,7 +175,7 @@ const MainWindow = (props) => {
                     <Training
                         arrayOfInstances={instances}
                         activeModal={isFinished}
-                        />
+                    />
                     
                         <div className={outputClasses.join(' ')}>
                             <div className={classes['output_line']}>
@@ -427,18 +208,10 @@ const MainWindow = (props) => {
                         modalBtns={modalBtnsHendler}
                     />
 
-
                     </div>
                 </div>
             </motion.div>
         )
     }
-    
 
-function mapStateToProp(state) {
-    return {
-        amounts: state.setActions
-    }
-}
-
-export default connect(mapStateToProp)(MainWindow)
+export default React.memo(MainWindow)

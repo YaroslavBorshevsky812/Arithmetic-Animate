@@ -7,4 +7,4 @@ function MainBtn(props) {
     )
 }
 
-export default MainBtn
+export default React.memo(MainBtn)

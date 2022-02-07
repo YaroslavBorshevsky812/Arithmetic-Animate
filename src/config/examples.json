@@ -1,0 +1,22 @@
+{
+    "exampleArray": [
+        {"title": "Сложение", "arrayOfStrings": ["A + A", "AA + A", "AA + AA"]},
+        {"title": "Вычитание", "arrayOfStrings": ["A - A", "AA - A", "AA - AA"]},
+        {"title": "Умножение", "arrayOfStrings": ["A / A", "AA / A", "AA / AA"]},
+        {"title": "Деление", "arrayOfStrings": ["A x A", "AA x A", "AA x AA"]}
+    ],
+    "modalBtns": [
+        {"value": "7"},
+        {"value": "8"},
+        {"value": "9"},
+        {"value": "4"},
+        {"value": "5"},
+        {"value": "6"},
+        {"value": "1"},
+        {"value": "2"},
+        {"value": "3"},
+        {"value": "del"},
+        {"value": "0"},
+        {"value": "."}
+    ]
+}

@@ -1,34 +1,46 @@
 import classes from './ActionItem.module.scss'
-import { connect } from 'react-redux'
+import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
 
-const Action = props => {
+const ActionItem = ({itemName}) => {
+    const [count, setCount] = useState(0)
+    const dispatch = useDispatch()
+    const add = () => {
+        setCount(count + 1)
+        const item = {
+            name: itemName,
+            count: count
+        }
+        dispatch({type: 'ADD', payload: item})
+    }
+    
+    const remove = () => {
+        const a = count - 1
+        setCount(a)
+        const item = {
+            name: itemName,
+            count: a
+        }
+        dispatch({type: 'SUB', payload: item})
+    }
 
     return(
         <div className={classes.ActionItem}>
             <div className={classes.ActionItem_left}>
-                <h5>{props.optionNum}</h5>
+                <h5>{itemName}</h5>
             </div>
+            
             <div className={classes.ActionItem_right}>
-                <span  onClick={() => props.onAdd(props.action)} className={classes.btn}>+</span>
-                <h4 className={classes.num}>{props.amounts[props.action].amount}</h4>
-                <span onClick={() => props.onSub(props.action)} className={classes.btn}>-</span>
+                <span onClick={() => add()} className={classes.btn}>+</span>
+                <h4 className={classes.num}>{count}</h4>
+                <span onClick={() => remove()} className={classes.btn}>-</span>
             </div>
-        </div>
+        </div>   
     )    
 }
 
-function mapStateToProp(state) {
-    return {
-        counter: state.counter,
-        amounts: state.setActions
-    }
-}
+export default React.memo(ActionItem)
 
-function mapDispatchToProps(dispatch) {
-    return {
-        onAdd: (i) => dispatch({type: 'ADD', index: i}),
-        onSub: (i) => dispatch({type: 'SUB', index: i})
-    }
-}
 
-export default connect(mapStateToProp, mapDispatchToProps)(Action)
+
+    

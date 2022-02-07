@@ -3,8 +3,7 @@ import classes from './ModalWindow.module.scss'
 
 
 const ModalWin = (props) => {
-
-    
+    console.log('1');
     const modalClasses = [classes.modal]
     if(props.active) {
         modalClasses.push(classes['active'])
@@ -26,4 +25,4 @@ const ModalWin = (props) => {
     )
 }
 
-export default ModalWin
+export default React.memo(ModalWin)
